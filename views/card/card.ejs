@@ -1,0 +1,123 @@
+
+<% for(var i=0; i<10; i++) { %>
+
+<div style="width: 50%; float: left;" id="test">
+    <style>
+        .main {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            margin: 10px;
+            border-radius: 15px 15px 15px 15px;
+            display: flex-start;
+        }
+
+        .heading {
+            background-color: #0a1e3f;
+            color: white;
+            border-radius: 15px 15px 0px 0px;
+            display: flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+        }
+        .heading h1 {
+            width: 100%;
+            text-align: center;
+            -ms-flex-item-align: center;
+            -ms-grid-row-align: center;
+        }
+
+        .row1 {
+            display: flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            flex-direction: row;
+            margin-top: 5px;
+        }
+
+        .row2 {
+            display: flex;
+            display: -ms-flexbox;
+            display: -webkit-box;
+            flex-direction: row;
+        }
+
+        .row1colum2 {
+            flex-grow: 1;
+            -webkit-box-flex: 1;
+            margin-left: 10px;
+
+            background-color: rgba(255, 255, 255, 0.5);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .row2colum1 {
+            
+            background-color: #446279;
+            border-radius: 0px 0px 0px 15px;
+            width: 35%;
+        }
+
+        .row2colum1 p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .row2colum2 {
+            flex-grow: 1;
+            -ms-flex-positive: 1;
+            justify-content: right;
+            text-align: right;
+
+        }
+
+        .row2colum2 p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .row1colum2 img {
+            align-self: right;
+        }
+    </style>
+    <div class="main">
+        <div class="heading">
+            <h1>UNIVERSITY OF SAGODHA</h1>
+        </div>
+        <div>
+            <div class="row1">
+                <div class="row1colum1">
+                    <img src="<%= avatar %>"
+                        alt="Avatar" style="display: inline; border: solid black 2px;">
+                </div>
+                <div class="row1colum2">
+                    <h3><b>FULL NAME</b></h3>
+                    <p><b>DESIGNATION : Architect & Engineer</b></p>
+                    </br>
+                    </br>
+                    </br>
+                    <p>DEPARTMENT</p>
+                </div>
+            </div>
+            <div class="row2">
+                <div class="row2colum1">
+                    <div style="padding-left: 2em; margin-top: 10px; color: white;">
+                        <p style="font-size: 10px;"></p>VALID UNTILL
+                        <p style="font-size: 25px; font-weight: bold;">31-DEC-2021</p>
+                    </div>
+                </div>
+                <div class="row2colum2">
+                    <p style="padding-right: 1em;">Sr# <%= barcodeNumber %></p>
+                    <img style="padding-right: 1em;"
+                        src="<%= barcode %>">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
