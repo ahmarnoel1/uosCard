@@ -23,7 +23,7 @@ module.exports = {
             }, (err, str) => {
                 if (str) {
                     
-                    //res.send(str); return;/*
+                    res.send(str); return;/*
 
                     // res.writeHead(200, {
                     //     'Content-Type': 'application/pdf',
