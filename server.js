@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const appConfig = require('./config/appConfig');
+// Configuring the database
+const dbConfig = require('./config/config_database.config');
+const mongoose = require('mongoose');
 // create express app
 const app = express();
 /* -------------------------- setting the time zone ------------------------- */
@@ -55,6 +58,31 @@ app.use(require('compression')())
 
 app.use(require('express').static(path.join(__dirname, 'public/dist/su-admissions')));
 app.use('/private/avatars', require('express').static(path.join(__dirname, 'private/avatars/')));
+
+function connectDb() {
+
+    console.log("> connection string: " + dbConfig.url);
+    // Connecting to the database
+    mongoose.connect(dbConfig.url, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    }).then(async () => {
+        console.log("> Successfully connected to the database: ", dbConfig.url);
+        sharedController.seed();
+        socketManager.connect(app, appConfig.SERVER_PORT);
+
+        await require('./utils/backup/db-backup').registerDatabaseBackupScheduler();
+
+    }).catch(err => {
+        console.log('> Could not connect to the database', err);
+        console.log(`> Retrying in 5 seconds`);
+        setTimeout(() => {
+            connectDb();
+        }, 5000);
+    });
+}
+
 
 
 errorHandler();
