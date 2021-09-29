@@ -19,7 +19,7 @@
     "express-rate-limit": "^5.0.0",
     "fs-path": "0.0.24",
     "html-pdf": "^2.2.0",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.15",
     "lzutf8": "^0.5.5",
